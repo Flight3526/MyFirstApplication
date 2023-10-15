@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         launcher = registerForActivityResult(                     // 创建ActivityResultLauncher启动器对象
-            new ActivityResultContracts.StartActivityForResult(), // 使用StartActivityForResult合同
-            result -> {}
+                new ActivityResultContracts.StartActivityForResult(), // 使用StartActivityForResult合同
+                result -> {}
         );
         Button button_show_recycler = findViewById(R.id.button_show_recyclerview);
         button_show_recycler.setOnClickListener(view -> {
