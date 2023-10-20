@@ -1,13 +1,13 @@
 package com.jnu.student;
 
-import android.view.ContextMenu;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.jnu.student.data.BookItem;
+
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.BookViewHolder>{
@@ -25,7 +25,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.BookViewHolder>{
     public void onBindViewHolder(BookViewHolder holder, int position){
         BookItem book = booklist.get(position);
         holder.name.setText(book.getTitle());
-        holder.price.setText(book.getPrice());
+        holder.price.setText(String.valueOf(book.getPrice()));     //需将数字转为字符串
         holder.image.setImageResource(book.getCoverResourceId());
     }
 
@@ -54,22 +54,3 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.BookViewHolder>{
 
 
 
-class BookItem {
-    private final String book_name;
-    private final String book_price;
-    private final int book_image;
-    public String getTitle() {
-        return book_name;
-    }
-    public String getPrice() {
-        return book_price;
-    }
-    public int getCoverResourceId() {
-        return book_image;
-    }
-    BookItem(String name, String price, int image){
-        book_name = name;
-        book_price = price;
-        book_image = image;
-    }
-}

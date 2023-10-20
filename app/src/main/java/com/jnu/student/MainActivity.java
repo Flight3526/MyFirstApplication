@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //使用layout文件显示布局
         setContentView(R.layout.activity_main);
 
-        text_view_greet = findViewById(R.id.text_view_hello_world);  // 根据ID获取响应对象
-        text_view_greet.setText(R.string.hello_android);             // 修改原先内容
-        text_view_greet.setTextColor(Color.RED);                     // 修改字体颜色
-        text_view_greet.setTextSize(30);                             // 修改字体大小
+        text_view_greet = findViewById(R.id.text_view_hello_world);        // 根据ID获取响应对象
+        text_view_greet.setText(R.string.hello_android);                          // 修改原先内容
+        text_view_greet.setTextColor(Color.RED);                           // 修改字体颜色
+        text_view_greet.setTextSize(30);                                   // 修改字体大小
         text_view_hello = findViewById(R.id.text_view_hello);
         text_view_hello.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);      // 设置文字居中
         text_view_hello.setTextColor(Color.BLUE);
@@ -40,6 +40,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         text_view_jnu.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         text_view_jnu.setTextColor(Color.GREEN);
         text_view_jnu.setTextSize(30);
+
+        launcher = registerForActivityResult(                     // 创建ActivityResultLauncher启动器对象
+            new ActivityResultContracts.StartActivityForResult(), // 使用StartActivityForResult合同
+            result -> {}
+        );
 
         Button button_change_text = findViewById(R.id.button_change_text);
         button_change_text.setOnClickListener(this);
@@ -54,15 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             text_view_jnu.setTextColor(tempColor1); text_view_hello.setTextColor(tempColor2);
         });
 
-        launcher = registerForActivityResult(                     // 创建ActivityResultLauncher启动器对象
-                new ActivityResultContracts.StartActivityForResult(), // 使用StartActivityForResult合同
-                result -> {}
-        );
         Button button_show_recycler = findViewById(R.id.button_show_recyclerview);
-        button_show_recycler.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, RecyclerviewBook.class);
-            launcher.launch(intent);                              //启动Activity
-        });
+        button_show_recycler.setOnClickListener(view ->
+            launcher.launch(new Intent(MainActivity.this, RecyclerviewBook.class))                             //启动Activity
+        );
     }
 
     public void onClick(View view){                         // 交换TextView文本并显示Toast和对话框

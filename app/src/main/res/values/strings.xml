@@ -15,4 +15,9 @@
     <string name="input_title">input_title</string>
     <string name="input_price">input_price</string>
     <string name="add">Add</string>
+    <string name="OK">确定</string>
+    <string name="cancel">取消</string>
+    <string name="RMB">元</string>
+    <string name="ret">返回</string>
+    <string name="add_book">添加一本书</string>
 </resources>
