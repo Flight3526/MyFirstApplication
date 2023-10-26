@@ -20,4 +20,7 @@
     <string name="RMB">元</string>
     <string name="ret">返回</string>
     <string name="add_book">添加一本书</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button_showHorizon">点击显示水平视图集</string>
 </resources>

@@ -63,6 +63,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_show_recycler.setOnClickListener(view ->
             launcher.launch(new Intent(MainActivity.this, RecyclerviewBook.class))                             //启动Activity
         );
+
+        Button button_show_horizon = findViewById(R.id.button_show_horizon);
+        button_show_horizon.setOnClickListener(view ->
+            launcher.launch(new Intent(MainActivity.this, HorizonScrollActivity.class))                             //启动Activity
+        );
     }
 
     public void onClick(View view){                         // 交换TextView文本并显示Toast和对话框
