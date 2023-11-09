@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/book_view"
+        android:id="@+id/daily_task_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -17,10 +17,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="500dp"
         android:text="@string/ret"
-        app:layout_constraintBottom_toBottomOf="@+id/book_view"
-        app:layout_constraintEnd_toEndOf="@+id/book_view"
-        app:layout_constraintStart_toStartOf="@+id/book_view"
-        app:layout_constraintTop_toTopOf="@+id/book_view" />
+        app:layout_constraintBottom_toBottomOf="@+id/daily_task_view"
+        app:layout_constraintEnd_toEndOf="@+id/daily_task_view"
+        app:layout_constraintStart_toStartOf="@+id/daily_task_view"
+        app:layout_constraintTop_toTopOf="@+id/daily_task_view" />
 
     <Button
         android:id="@+id/button_add_book"

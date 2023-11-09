@@ -1,5 +1,4 @@
 package com.jnu.student.data;
-
 import android.content.Context;
 import android.util.Log;
 
@@ -11,16 +10,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-public class BookBank {
-    final static String DATA_FILENAME = "book_items.data";
-
-    public static List<BookItem> LoadBookItems(Context context) throws FileNotFoundException {
-        List<BookItem> data = new ArrayList<>();
+public class RewardBank {
+    final static String DATA_FILENAME = "reward_items.data";
+    public static List<RewardItem> LoadRewardItems(Context context) throws FileNotFoundException{
+        List<RewardItem> data = new ArrayList<>();
         try{
             FileInputStream fileIn = context.openFileInput(DATA_FILENAME);
             ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-            data = (ArrayList<BookItem>) objectIn.readObject();
+            data = (ArrayList<RewardItem>) objectIn.readObject();
             objectIn.close();
             fileIn.close();
             Log.d("Serialization", "Data loaded successfully" + data.size());
@@ -29,12 +26,11 @@ public class BookBank {
         }
         return data;
     }
-
-    public static void SaveBookItems(Context context, List<BookItem> bookList){
+    public static void SaveRewardItems(Context context, List<RewardItem> rewardList){
         try{
             FileOutputStream fileOut = context.openFileOutput(DATA_FILENAME, Context.MODE_PRIVATE);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
-            objectOut.writeObject(bookList);
+            objectOut.writeObject(rewardList);
             objectOut.close();
             fileOut.close();
             Log.d("Serialization", "Data is serialized and saved");

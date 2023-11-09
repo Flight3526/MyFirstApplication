@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
@@ -37,9 +36,7 @@ public class BookFragment extends Fragment {
     MyAdapter bookAdapter;
     Button button_add_book;
 
-    public BookFragment() {
-        // Required empty public constructor
-    }
+    public BookFragment() {}
 
     public static BookFragment newInstance(String param1, String param2) {
         BookFragment fragment = new BookFragment();

@@ -1,5 +1,4 @@
 package com.jnu.student.data;
-
 import android.content.Context;
 import android.util.Log;
 
@@ -11,16 +10,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-public class BookBank {
-    final static String DATA_FILENAME = "book_items.data";
-
-    public static List<BookItem> LoadBookItems(Context context) throws FileNotFoundException {
-        List<BookItem> data = new ArrayList<>();
+public class TaskBank {
+    final static String[] DATA_FILENAME = {"daily_task_items.data","weekly_task_items.data","normal_task_items.data"};
+    public static List<TaskItem> LoadTaskItems(Context context, int type) throws FileNotFoundException {
+        List<TaskItem> data = new ArrayList<>();
         try{
-            FileInputStream fileIn = context.openFileInput(DATA_FILENAME);
+            FileInputStream fileIn = context.openFileInput(DATA_FILENAME[type]);
             ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-            data = (ArrayList<BookItem>) objectIn.readObject();
+            data = (ArrayList<TaskItem>) objectIn.readObject();
             objectIn.close();
             fileIn.close();
             Log.d("Serialization", "Data loaded successfully" + data.size());
@@ -30,11 +27,11 @@ public class BookBank {
         return data;
     }
 
-    public static void SaveBookItems(Context context, List<BookItem> bookList){
+    public static void SaveTaskItems(Context context, List<TaskItem> taskList, int type){
         try{
-            FileOutputStream fileOut = context.openFileOutput(DATA_FILENAME, Context.MODE_PRIVATE);
+            FileOutputStream fileOut = context.openFileOutput(DATA_FILENAME[type], Context.MODE_PRIVATE);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
-            objectOut.writeObject(bookList);
+            objectOut.writeObject(taskList);
             objectOut.close();
             fileOut.close();
             Log.d("Serialization", "Data is serialized and saved");

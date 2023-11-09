@@ -31,7 +31,7 @@ public class RecyclerviewBook extends AppCompatActivity{
         setContentView(R.layout.activity_recycler_view_book);
         Log.i("RecyclerviewBook","enter OnCreate");
 
-        RecyclerView recycler_View_books = findViewById(R.id.book_view);
+        RecyclerView recycler_View_books = findViewById(R.id.daily_task_view);
         recycler_View_books.setLayoutManager(new LinearLayoutManager(this));
         try {
             bookList = BookBank.LoadBookItems(this.getApplicationContext());

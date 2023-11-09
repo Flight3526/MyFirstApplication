@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyFirstApplication</string>
+    <string name="app_name">PlayTask</string>
     <string name="hello_world">Hello World!</string>
     <string name="hello_android">Hello Android</string>
     <string name="Hello">Hello</string>
@@ -23,4 +23,17 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="button_showHorizon">点击显示水平视图集</string>
+    <string name="prior_page">上一页</string>
+    <string name="next_page">下一页</string>
+    <string name="daily">每日</string>
+    <string name="task_name">任务内容</string>
+    <string name="task_times">进行次数</string>
+    <string name="task_reward">成就点数</string>
+    <string name="task_type">任务类型</string>
+    <string name="input_name">输入内容</string>
+    <string name="input_times">默认为1</string>
+    <string name="input_reward">默认为10</string>
+    <string name="input_cost">默认为20</string>
+    <string name="reward_name">奖励内容</string>
+    <string name="reward_cost">奖励代价</string>
 </resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddRewardActivity">
+
+    <TextView
+        android:id="@+id/textView_reward_name1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="@string/reward_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_reward_name"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:ems="10"
+        android:inputType="text"
+        android:autofillHints="@string/input_name"
+        android:hint="@string/input_name"
+        app:layout_constraintStart_toEndOf="@+id/textView_reward_name1"
+        app:layout_constraintTop_toTopOf="@+id/textView_reward_name1" />
+
+    <TextView
+        android:id="@+id/textView_reward_cost1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="@string/reward_cost"
+        app:layout_constraintStart_toStartOf="@+id/textView_reward_name1"
+        app:layout_constraintTop_toBottomOf="@+id/textView_reward_name1" />
+
+    <EditText
+        android:id="@+id/editText_reward_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:ems="10"
+        android:inputType="number"
+        android:autofillHints="@string/input_cost"
+        android:hint="@string/input_cost"
+        app:layout_constraintStart_toEndOf="@+id/textView_reward_cost1"
+        app:layout_constraintTop_toTopOf="@+id/textView_reward_cost1" />
+
+    <Button
+        android:id="@+id/button_reward_OK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/OK"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_reward_cost1" />
+</androidx.constraintlayout.widget.ConstraintLayout>
