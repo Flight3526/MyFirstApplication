@@ -27,7 +27,7 @@
     <string name="next_page">下一页</string>
     <string name="daily">每日</string>
     <string name="task_name">任务内容</string>
-    <string name="task_times">进行次数</string>
+    <string name="task_times">所需次数</string>
     <string name="task_reward">成就点数</string>
     <string name="task_type">任务类型</string>
     <string name="input_name">输入内容</string>

@@ -11,8 +11,8 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 public class TaskBank {
-    final static String[] DATA_FILENAME = {"daily_task_items.data","weekly_task_items.data","normal_task_items.data"};
-    public static List<TaskItem> LoadTaskItems(Context context, int type) throws FileNotFoundException {
+    final static String[] DATA_FILENAME = {"daily_task_items.data", "weekly_task_items.data", "normal_task_items.data"};
+    public static List<TaskItem> LoadTaskItems(Context context, int type) {
         List<TaskItem> data = new ArrayList<>();
         try{
             FileInputStream fileIn = context.openFileInput(DATA_FILENAME[type]);
@@ -20,7 +20,7 @@ public class TaskBank {
             data = (ArrayList<TaskItem>) objectIn.readObject();
             objectIn.close();
             fileIn.close();
-            Log.d("Serialization", "Data loaded successfully" + data.size());
+            Log.d("TaskSerialization", "Data loaded successfully: " + data.size());
         } catch(IOException | ClassNotFoundException e){
             e.printStackTrace();
         }
@@ -34,7 +34,7 @@ public class TaskBank {
             objectOut.writeObject(taskList);
             objectOut.close();
             fileOut.close();
-            Log.d("Serialization", "Data is serialized and saved");
+            Log.d("TaskSerialization", "Data is serialized and saved");
         }catch(IOException e){
             e.printStackTrace();
         }

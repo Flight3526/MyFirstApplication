@@ -55,9 +55,18 @@
         android:id="@+id/button_reward_OK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="80dp"
         android:text="@string/OK"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_reward_cost1" />
+
+    <Button
+        android:id="@+id/button_reward_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:text="@string/cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_reward_OK" />
 </androidx.constraintlayout.widget.ConstraintLayout>

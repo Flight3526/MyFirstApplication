@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,20 +55,13 @@ public class TaskNormalFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_normal_task, container, false);
         RecyclerView recycler_view_tasks = rootView.findViewById(R.id.normal_task_view);
         recycler_view_tasks.setLayoutManager(new LinearLayoutManager(requireActivity()));
-        try {
-            normalTaskList = TaskBank.LoadTaskItems(requireActivity().getApplicationContext(),2);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        normalTaskList.add(new TaskItem("写作业", 1,20));
-        normalTaskAdapter = new TaskAdapter(normalTaskList);
+        normalTaskAdapter = TaskFragment.taskAdapter[2];
         recycler_view_tasks.setAdapter(normalTaskAdapter);
+
         DividerItemDecoration divider = new DividerItemDecoration(requireActivity(),DividerItemDecoration.VERTICAL);
         divider.setDrawable(ContextCompat.getDrawable(requireActivity(),R.drawable.divider));
         recycler_view_tasks.addItemDecoration(divider);
-        launcherSet();
         return rootView;
     }
-    void launcherSet(){}
 //    public boolean onContextItemSelected(MenuItem item){}
 }

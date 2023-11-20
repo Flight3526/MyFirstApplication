@@ -3,8 +3,8 @@ package com.jnu.student.data;
 import java.io.Serializable;
 public class RewardItem implements Serializable {
     private String rewardName;
-    private String rewardCost;
-    public RewardItem(String name, String cost){
+    private int rewardCost;
+    public RewardItem(String name, int cost){
         rewardName = name;
         rewardCost = cost;
     }
@@ -13,7 +13,7 @@ public class RewardItem implements Serializable {
         return rewardName;
     }
 
-    public String getRewardCost() {
+    public int getRewardCost() {
         return rewardCost;
     }
 
@@ -21,7 +21,7 @@ public class RewardItem implements Serializable {
         this.rewardName = rewardName;
     }
 
-    public void setRewardCost(String rewardCost) {
+    public void setRewardCost(int rewardCost) {
         this.rewardCost = rewardCost;
     }
 }

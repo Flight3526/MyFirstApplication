@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class RewardBank {
     final static String DATA_FILENAME = "reward_items.data";
-    public static List<RewardItem> LoadRewardItems(Context context) throws FileNotFoundException{
+    public static List<RewardItem> LoadRewardItems(Context context){
         List<RewardItem> data = new ArrayList<>();
         try{
             FileInputStream fileIn = context.openFileInput(DATA_FILENAME);
@@ -20,7 +20,7 @@ public class RewardBank {
             data = (ArrayList<RewardItem>) objectIn.readObject();
             objectIn.close();
             fileIn.close();
-            Log.d("Serialization", "Data loaded successfully" + data.size());
+            Log.d("RewardSerialization", "Data loaded successfully: " + data.size());
         } catch(IOException | ClassNotFoundException e){
             e.printStackTrace();
         }
@@ -33,7 +33,7 @@ public class RewardBank {
             objectOut.writeObject(rewardList);
             objectOut.close();
             fileOut.close();
-            Log.d("Serialization", "Data is serialized and saved");
+            Log.d("RewardSerialization", "Data is serialized and saved");
         }catch(IOException e){
             e.printStackTrace();
         }
