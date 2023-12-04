@@ -11,7 +11,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 public class RewardBank {
-    final static String DATA_FILENAME = "reward_items.data";
+    final static String DATA_FILENAME = "items_reward.data";
     public static List<RewardItem> LoadRewardItems(Context context){
         List<RewardItem> data = new ArrayList<>();
         try{

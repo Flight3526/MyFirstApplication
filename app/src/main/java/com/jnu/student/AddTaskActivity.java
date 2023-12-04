@@ -32,7 +32,7 @@ public class AddTaskActivity extends AppCompatActivity implements AdapterView.On
         button_OK = findViewById(R.id.button_task_OK);
         button_cancel = findViewById(R.id.button_task_cancel);
         String[] arr = {"每日任务", "每周任务", "普通任务"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, arr);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item_spinner, arr);
         spinner_task_type.setAdapter(adapter);
         spinner_task_type.setDropDownWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
         spinner_task_type.setOnItemSelectedListener(this);

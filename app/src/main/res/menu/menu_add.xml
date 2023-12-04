@@ -3,7 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_add"
-        android:icon="@drawable/plus"
-        android:title="add"
+        android:icon="@drawable/ic_plus"
+        android:title="添加"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_bill"
+        android:icon="@drawable/ic_bill2"
+        android:title="账单"
         app:showAsAction="always" />
 </menu>

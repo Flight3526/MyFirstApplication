@@ -1,88 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background01"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text_view_hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:gravity="center"
-        android:text="@string/hello_world"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--主页面布局-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text_view_hello"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="@string/Hello"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/text_view_jnu"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <TextView
-        android:id="@+id/text_view_jnu"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="@string/JNU"
-        android:textColor="#3E2723"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_view_hello"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"  />
 
-    <Button
-        android:id="@+id/button_change_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
-        android:text="@string/button_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_hello_world" />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="fixed"
+            app:tabGravity="fill"/>
+    </LinearLayout>
 
-    <!-- android.widget.Button可用于修改按钮颜色 -->
-    <android.widget.Button
-        android:id="@+id/button_change_color"
-        android:layout_width="135dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="#FF0000"
-        android:rotationX="8"
-        android:text="@string/change_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_change_text"
-        tools:ignore="TextSizeCheck" />
+    <!--滑动页面布局-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:itemTextAppearance="@style/myNavigationDrawerStyle"
+        app:itemTextColor="#0000df"
+        app:headerLayout="@layout/navigation_header"
+        app:menu="@menu/menu_navigation">
 
-    <Button
-        android:id="@+id/button_show_recyclerview"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="150dp"
-        android:text="@string/show_recyclerview"
-        app:layout_constraintBottom_toTopOf="@+id/text_view_hello_world"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+    </com.google.android.material.navigation.NavigationView>
 
-    <Button
-        android:id="@+id/button_show_horizon"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:text="@string/button_showHorizon"
-        app:layout_constraintBottom_toTopOf="@+id/text_view_hello_world"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

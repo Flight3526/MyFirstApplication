@@ -11,7 +11,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 public class TaskBank {
-    final static String[] DATA_FILENAME = {"daily_task_items.data", "weekly_task_items.data", "normal_task_items.data"};
+    final static String[] DATA_FILENAME = {"items_task_daily.data", "items_task_weekly.data", "items_task_normal.data"};
     public static List<TaskItem> LoadTaskItems(Context context, int type) {
         List<TaskItem> data = new ArrayList<>();
         try{
