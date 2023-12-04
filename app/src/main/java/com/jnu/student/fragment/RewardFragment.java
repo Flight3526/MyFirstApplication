@@ -24,9 +24,11 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.jnu.student.*;
+import com.jnu.student.adapter.RewardAdapter;
+import com.jnu.student.data.EventBank;
 import com.jnu.student.data.RewardBank;
 import com.jnu.student.data.RewardItem;
-import com.jnu.student.data.ScoreData;
+import com.jnu.student.data.DataScore;
 import java.util.List;
 
 public class RewardFragment extends Fragment implements RewardAdapter.onItemClickListener{
@@ -57,7 +59,7 @@ public class RewardFragment extends Fragment implements RewardAdapter.onItemClic
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         setHasOptionsMenu(true);
-        rewardList = RewardBank.LoadRewardItems(requireActivity());
+        rewardList = RewardBank.loadRewardItems(requireActivity());
         rewardAdapter = new RewardAdapter(rewardList);
         rewardAdapter.setOnItemClickListener(this);
         launcherSet();
@@ -70,12 +72,15 @@ public class RewardFragment extends Fragment implements RewardAdapter.onItemClic
         RecyclerView recycler_view_reward = rootView.findViewById(R.id.reward_view);
         recycler_view_reward.setLayoutManager(new LinearLayoutManager(requireActivity()));
         if(0 == rewardList.size()) {
-            rewardList.add(new RewardItem("吃饭", 20));
-            rewardList.add(new RewardItem("睡觉", 30));
+            rewardList.add(new RewardItem("逛十分钟手机", 25));
+            rewardList.add(new RewardItem("读小说", 30));
+            rewardList.add(new RewardItem("喝奶茶", 35));
+            rewardList.add(new RewardItem("看电影", 40));
+            rewardList.add(new RewardItem("购物", 50));
         }
         recycler_view_reward.setAdapter(rewardAdapter);
         DividerItemDecoration divider = new DividerItemDecoration(requireActivity(),DividerItemDecoration.VERTICAL);
-        divider.setDrawable(ContextCompat.getDrawable(requireActivity(),R.drawable.divider));
+        divider.setDrawable(ContextCompat.getDrawable(requireActivity(),R.drawable.ic_divider));
         recycler_view_reward.addItemDecoration(divider);
         launcherSet();
         return rootView;
@@ -85,17 +90,20 @@ public class RewardFragment extends Fragment implements RewardAdapter.onItemClic
         String rewardName = reward.getRewardName();
         int cost = reward.getRewardCost();
         AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
-        builder.setTitle("提示").setMessage("你确定用"+cost+"积分兑换\""+rewardName+"\"吗?");
+        builder.setTitle("提示").setMessage("你确定用"+cost+"任务币兑换\""+rewardName+"\"吗?");
         builder.setPositiveButton("确定", (dialogInterface, i) -> {
-            ScoreData.updateScore(-reward.getRewardCost());
+            if(DataScore.updateScore(-reward.getRewardCost()))
+                EventBank.addEventItem(requireActivity(), rewardName, -cost);
             invalidateOptionsMenu(getActivity());
         });
         builder.setNegativeButton("取消", (dialogInterface, i) -> {});
         builder.create().show();
     }
     public void onPrepareOptionsMenu(Menu menu) {
-        MenuItem item=menu.findItem(R.id.action_add);
-        if(item!=null) item.setVisible(true);
+        MenuItem item_add = menu.findItem(R.id.action_add);
+        if(null != item_add) item_add.setVisible(true);
+        MenuItem item_bill = menu.findItem(R.id.action_bill);
+        if(null != item_bill) item_bill.setVisible(false);
     }
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -119,7 +127,7 @@ public class RewardFragment extends Fragment implements RewardAdapter.onItemClic
                     int cost = bundle_get.getInt("cost");
                     rewardList.add(new RewardItem(name, cost));
                     rewardAdapter.notifyItemInserted(rewardList.size());
-                    RewardBank.SaveRewardItems(requireActivity().getApplicationContext(), rewardList);
+                    RewardBank.saveRewardItems(requireActivity().getApplicationContext(), rewardList);
                     Toast.makeText(requireActivity(), "已添加", Toast.LENGTH_SHORT).show();
                 }
                 else if(result.getResultCode() == Activity.RESULT_CANCELED){
@@ -142,7 +150,7 @@ public class RewardFragment extends Fragment implements RewardAdapter.onItemClic
                     RewardItem reward = rewardList.get(position);
                     reward.setRewardName(name); reward.setRewardCost(cost);
                     rewardAdapter.notifyItemChanged(position);
-                    RewardBank.SaveRewardItems(requireActivity(), rewardList);
+                    RewardBank.saveRewardItems(requireActivity(), rewardList);
                     Toast.makeText(requireActivity(), "已修改", Toast.LENGTH_SHORT).show();
                 }
                 else if(result.getResultCode() == Activity.RESULT_CANCELED){
@@ -167,8 +175,8 @@ public class RewardFragment extends Fragment implements RewardAdapter.onItemClic
                     rewardList.remove(pos);
                     rewardAdapter.notifyItemRemoved(pos);
                     rewardAdapter.notifyItemRangeChanged(pos, rewardList.size() - pos);
-                    RewardBank.SaveRewardItems(requireActivity(), rewardList);
-                    Toast.makeText(requireActivity(), "删除第"+ (pos + 1) +"项", Toast.LENGTH_SHORT).show();
+                    RewardBank.saveRewardItems(requireActivity(), rewardList);
+                    Toast.makeText(requireActivity(), "删除成功", Toast.LENGTH_SHORT).show();
                 });
                 builder.setNegativeButton("取消", (dialogInterface, i) -> {});
                 builder.create().show();

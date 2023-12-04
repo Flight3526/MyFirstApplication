@@ -1,6 +1,5 @@
 package com.jnu.student.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -9,19 +8,13 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import com.jnu.student.*;
-import com.jnu.student.data.TaskBank;
+import com.jnu.student.adapter.TaskAdapter;
 import com.jnu.student.data.TaskItem;
-
-import java.io.FileNotFoundException;
-import android.view.MenuItem;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -56,14 +49,14 @@ public class TaskWeeklyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_weekly_task, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_task_weekly, container, false);
         RecyclerView recycler_view_tasks = rootView.findViewById(R.id.weekly_task_view);
         recycler_view_tasks.setLayoutManager(new LinearLayoutManager(requireActivity()));
         weeklyTaskAdapter = TaskFragment.taskAdapter[1];
         recycler_view_tasks.setAdapter(weeklyTaskAdapter);
 
         DividerItemDecoration divider = new DividerItemDecoration(requireActivity(),DividerItemDecoration.VERTICAL);
-        divider.setDrawable(ContextCompat.getDrawable(requireActivity(),R.drawable.divider));
+        divider.setDrawable(ContextCompat.getDrawable(requireActivity(),R.drawable.ic_divider));
         recycler_view_tasks.addItemDecoration(divider);
         return rootView;
     }

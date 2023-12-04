@@ -3,7 +3,6 @@ import android.content.Context;
 import android.util.Log;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -11,8 +10,8 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 public class RewardBank {
-    final static String DATA_FILENAME = "reward_items.data";
-    public static List<RewardItem> LoadRewardItems(Context context){
+    final static String DATA_FILENAME = "items_reward.data";
+    public static List<RewardItem> loadRewardItems(Context context){
         List<RewardItem> data = new ArrayList<>();
         try{
             FileInputStream fileIn = context.openFileInput(DATA_FILENAME);
@@ -26,7 +25,7 @@ public class RewardBank {
         }
         return data;
     }
-    public static void SaveRewardItems(Context context, List<RewardItem> rewardList){
+    public static void saveRewardItems(Context context, List<RewardItem> rewardList){
         try{
             FileOutputStream fileOut = context.openFileOutput(DATA_FILENAME, Context.MODE_PRIVATE);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);

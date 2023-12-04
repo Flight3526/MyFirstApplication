@@ -8,17 +8,14 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.jnu.student.R;
-import com.jnu.student.TaskAdapter;
-import com.jnu.student.data.TaskBank;
+import com.jnu.student.adapter.TaskAdapter;
 import com.jnu.student.data.TaskItem;
 
-import java.io.FileNotFoundException;
 import java.util.List;
 
 public class TaskNormalFragment extends Fragment {
@@ -52,14 +49,14 @@ public class TaskNormalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_normal_task, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_task_normal, container, false);
         RecyclerView recycler_view_tasks = rootView.findViewById(R.id.normal_task_view);
         recycler_view_tasks.setLayoutManager(new LinearLayoutManager(requireActivity()));
         normalTaskAdapter = TaskFragment.taskAdapter[2];
         recycler_view_tasks.setAdapter(normalTaskAdapter);
 
         DividerItemDecoration divider = new DividerItemDecoration(requireActivity(),DividerItemDecoration.VERTICAL);
-        divider.setDrawable(ContextCompat.getDrawable(requireActivity(),R.drawable.divider));
+        divider.setDrawable(ContextCompat.getDrawable(requireActivity(),R.drawable.ic_divider));
         recycler_view_tasks.addItemDecoration(divider);
         return rootView;
     }

@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -32,10 +31,10 @@ public class AddTaskActivity extends AppCompatActivity implements AdapterView.On
         button_OK = findViewById(R.id.button_task_OK);
         button_cancel = findViewById(R.id.button_task_cancel);
         String[] arr = {"每日任务", "每周任务", "普通任务"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, arr);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item_spinner, arr);
         spinner_task_type.setAdapter(adapter);
-        spinner_task_type.setDropDownWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
         spinner_task_type.setOnItemSelectedListener(this);
+//        spinner_task_type.setGravity(View.TEXT_ALIGNMENT_CENTER);
 
         bundle_get = getIntent().getExtras();
         if(bundle_get != null && bundle_get.containsKey("name")){

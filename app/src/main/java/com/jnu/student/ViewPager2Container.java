@@ -4,8 +4,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
-
-import androidx.annotation.NonNull;
 import androidx.viewpager2.widget.ViewPager2;
 
 /* 用于处理ViewPager2滑动拦截问题，由于ViewPager2不能有子类，因此在外层和内层ViewPagers

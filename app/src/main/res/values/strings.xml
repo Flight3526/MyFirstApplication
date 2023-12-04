@@ -1,30 +1,8 @@
 <resources>
     <string name="app_name">PlayTask</string>
-    <string name="hello_world">Hello World!</string>
-    <string name="hello_android">Hello Android</string>
-    <string name="Hello">Hello</string>
-    <string name="JNU">JNU</string>
-    <string name="button_text">change text</string>
-    <string name="change_success">交换成功</string>
-    <string name="change_color">change color</string>
-    <string name="clicked">clicked</string>
-    <string name="book_title">title</string>
-    <string name="book_price">price</string>
-    <string name="show_recyclerview">点击显示RecyclerView</string>
-    <string name="description1">book_cover</string>
-    <string name="input_title">input_title</string>
-    <string name="input_price">input_price</string>
     <string name="add">Add</string>
     <string name="OK">确定</string>
     <string name="cancel">取消</string>
-    <string name="RMB">元</string>
-    <string name="ret">返回</string>
-    <string name="add_book">添加一本书</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="button_showHorizon">点击显示水平视图集</string>
-    <string name="prior_page">上一页</string>
-    <string name="next_page">下一页</string>
     <string name="daily">每日</string>
     <string name="task_name">任务内容</string>
     <string name="task_times">所需次数</string>
@@ -36,4 +14,17 @@
     <string name="input_cost">默认为20</string>
     <string name="reward_name">奖励内容</string>
     <string name="reward_cost">奖励代价</string>
+    <string name="my_bill">我的账单</string>
+    <string name="set_name">设置昵称/签名</string>
+    <string name="remove_bill">清空收支记录</string>
+    <string name="user_name">username</string>
+    <string name="event_name">事件名称</string>
+    <string name="event_time">事件时间</string>
+    <string name="event_value">任务币变动</string>
+    <string name="todo">TODO</string>
+    <string name="no_value">暂无数据</string>
+    <string name="set_nickname">设置昵称:</string>
+    <string name="set_signature">设置签名:</string>
+    <string name="user_nickname">昵称</string>
+    <string name="user_signature">签名</string>
 </resources>

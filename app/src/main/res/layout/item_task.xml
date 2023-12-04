@@ -22,7 +22,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:contentDescription="done"
-            android:src="@drawable/undone"
+            android:src="@drawable/png_undone"
             tools:ignore="ImageContrastCheck" />
     </LinearLayout>
 
@@ -40,7 +40,7 @@
             android:gravity="center"
             android:text="@string/task_name"
             android:textColor="#646464"
-            android:textSize="26sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
